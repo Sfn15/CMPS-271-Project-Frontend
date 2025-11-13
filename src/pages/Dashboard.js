@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "../api";
 import "./Dashboard.css";
 
 export default function Dashboard() {
@@ -32,7 +33,7 @@ export default function Dashboard() {
 
     const fetchCourses = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/courses/");
+        const res = await fetch(`${baseURL}/courses/`);
         const data = await res.json();
         setCourses(data);
       } catch (err) {

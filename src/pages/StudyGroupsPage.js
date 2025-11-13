@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import "./StudyGroupsPage.css";
+import { baseURL } from "../api";
 
 export default function StudyGroupsPage() {
   const { courseCode } = useParams();
@@ -14,7 +15,7 @@ export default function StudyGroupsPage() {
   const fetchGroups = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`http://127.0.0.1:8000/study-groups/${courseCode}`);
+      const res = await fetch(`${baseURL}/study-groups/${courseCode}`);
       const data = await res.json();
       setGroups(Array.isArray(data) ? data : []);
     } catch (error) {

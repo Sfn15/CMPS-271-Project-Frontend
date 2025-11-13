@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { supabase } from "../supabaseClient";
+import { baseURL } from "../api";
 import "./TutorsPage.css";
 
 export default function TutorsPage() {
@@ -15,7 +16,7 @@ export default function TutorsPage() {
   const fetchTutors = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`http://127.0.0.1:8000/tutors/${courseCode}`);
+      const res = await fetch(`${baseURL}/tutors/${courseCode}`);
       const data = await res.json();
       setTutors(Array.isArray(data) ? data : []);
     } catch (error) {
@@ -56,7 +57,7 @@ export default function TutorsPage() {
     const userId = data.id;
 
     try {
-      await fetch("http://127.0.0.1:8000/tutors", {
+      await fetch(`${baseURL}/tutors`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
