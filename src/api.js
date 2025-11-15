@@ -11,7 +11,7 @@ const hostIsLocal = isBrowser && (window.location.hostname === "localhost" || wi
 const envUrl = process.env.REACT_APP_API_URL;
 
 //export const baseURL = envUrl || (process.env.NODE_ENV === "development" || hostIsLocal ? "http://127.0.0.1:8000" : "https://courseconnect-pluh.vercel.app");
-export const baseURL =  "https://courseconnect-pluh.vercel.app";
+export const baseURL =  "https://courseconnect-backend.vercel.app/";
 
 // Small helper that prepends baseURL to a path and forwards options to fetch.
 // Use `apiFetch('/path', opts)` or `fetch(`${baseURL}/path`)` depending on preference.
