@@ -22,7 +22,8 @@ export default function CoursePage() {
       icon: '📄',
       color: '#F59E0B',
       gradient: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
-      path: `/course/${courseCode}/documents`
+      path: `/course/${courseCode}/documents`,
+      comingSoon: true
     },
     {
       id: 'study-groups',
@@ -68,9 +69,21 @@ export default function CoursePage() {
             <div 
               key={option.id}
               className="option-card"
-              onClick={() => navigate(option.path)}
-              style={{ '--card-color': option.color }}
+              onClick={() => !option.comingSoon && navigate(option.path)}
+              style={{ 
+                '--card-color': option.color,
+                cursor: option.comingSoon ? 'not-allowed' : 'pointer',
+                opacity: option.comingSoon ? 0.7 : 1
+              }}
             >
+              {option.comingSoon && (
+                <div className="coming-soon-badge">
+                  <span className="badge-sparkle">✨</span>
+                  COMING SOON!
+                  <span className="badge-sparkle">✨</span>
+                </div>
+              )}
+              
               <div className="option-icon-wrapper" style={{ background: option.gradient }}>
                 <span className="option-icon">{option.icon}</span>
               </div>
@@ -111,4 +124,3 @@ export default function CoursePage() {
     </div>
   );
 }
-
