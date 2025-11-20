@@ -371,3 +371,51 @@
 .option-card:nth-child(3) {
   animation-delay: 0.3s;
 }
+/* Coming Soon Badge */
+.coming-soon-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+  animation: pulse-badge 2s ease-in-out infinite;
+  z-index: 10;
+}
+
+.badge-sparkle {
+  font-size: 14px;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.badge-sparkle:last-child {
+  animation-delay: 0.75s;
+}
+
+@keyframes pulse-badge {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
