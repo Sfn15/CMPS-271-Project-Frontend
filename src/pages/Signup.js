@@ -15,10 +15,10 @@ function Signup() {
     setIsLoading(true);
 
     const isAUBEmail =
-      email.endsWith('@mail.aub.edu') || email.endsWith('@aub.edu');
+      email.endsWith('@mail.aub.edu') || email.endsWith('@aub.edu.lb');
 
     if (!isAUBEmail) {
-      alert('❌ Only @mail.aub.edu or @aub.edu allowed');
+      alert('❌ Only @mail.aub.edu or @aub.edu.lb allowed');
       setIsLoading(false);
       return;
     }
@@ -100,7 +100,7 @@ function Signup() {
                 required
                 className="form-input"
               />
-              <span className="input-hint">Use your @mail.aub.edu or @aub.edu email</span>
+              <span className="input-hint">Use your @mail.aub.edu or @aub.edu.lb email</span>
             </div>
 
             <div className="form-group">
